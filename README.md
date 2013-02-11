@@ -74,7 +74,7 @@ class MyController < ApplicationController
 end
 ```
 
-I recommend using `ApiResponder` in combination with [jgraichen/decorate-responder](/jgraichen/decorate-responder) and the decorator pattern (like [draper](/drapergem/draper)):
+I recommend using `ApiResponder` in combination with [jgraichen/decorate-responder](https://github.com/jgraichen/decorate-responder) and the decorator pattern (like [draper](https://github.com/drapergem/draper)):
 
 ```ruby
 class User < ActiveRecord::Base
@@ -127,7 +127,7 @@ rescue_from ApiResponder::Formattable::UnsupportedVersion do
 end
 ```
 
-Check out [jgraichen/paginate-responder](/jgraichen/paginate-responder) for automagic pagination support including HTTP Link headers.
+Check out [jgraichen/paginate-responder](https://github.com/jgraichen/paginate-responder) for automagic pagination support including HTTP Link headers.
 
 ## Contributing
 
