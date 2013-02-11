@@ -47,10 +47,10 @@ describe ApiResponder::Formattable do
       decorator.as_api({:format => :json, :api_version => 2})
     end
 
-    it "should use version 1 if no version is given" do
-      decorator.expects(:as_api_v1).with({:format => :json}).returns({})
-
-      decorator.as_api({:format => :json})
+    it "should raise exception if no version is given" do
+      assert_raises ApiResponder::Formattable::UnsupportedVersion do
+        decorator.as_api({:format => :json})
+      end
     end
 
     it "should raise exception if no version helper exists" do

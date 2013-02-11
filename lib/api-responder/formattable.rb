@@ -26,7 +26,9 @@ module ApiResponder
       end
 
       def as_api(options)
-        method = :"as_api_v#{options[:api_version] || 1}"
+        raise UnsupportedVersion.new unless options[:api_version]
+
+        method = :"as_api_v#{options[:api_version]}"
         raise UnsupportedVersion.new unless respond_to? method
 
         options.delete(:api_version)

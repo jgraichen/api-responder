@@ -34,6 +34,7 @@ class AppController < ActionController::Base
   include Responders::Routes.url_helpers
   self.responder = AppResponder
   respond_to :json
+  rescue_from ApiResponder::Formattable::UnsupportedVersion do head :not_acceptable end
   def index; respond_with params[:resource]; end
   def v1; respond_with params[:resource]; end
   def v2; respond_with params[:resource]; end
@@ -43,6 +44,7 @@ class CustomController < ActionController::Base
   include Responders::Routes.url_helpers
   self.responder = AppResponder
   respond_to :json
+  rescue_from ApiResponder::Formattable::UnsupportedVersion do head :not_acceptable end
   def index; respond_with params[:resource]; end
   def api_version; return $1 if request.headers["Accept"] =~ /vnd\.test.v(\d+)/; end
 end
