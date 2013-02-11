@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = ApiResponder::VERSION
   gem.authors       = ["Jan Graichen"]
   gem.email         = ["jg@altimos.de"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{ApiResponder simplifies version dependent rendering of API resources.}
+  gem.summary       = %q{ApiResponder simplifies version dependent rendering of API resources.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
