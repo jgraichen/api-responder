@@ -5,12 +5,11 @@ gemspec
 
 group :development, :test do
   gem 'rake'
-  gem 'minitest'
-  gem 'minitest-ansi'
-  gem 'minitest-reporters'
+  gem 'minitest',         :require => false
+  gem 'minitest-ansi',    :require => false
   gem 'mocha', '>= 0.13', :require => false
 end
 
 group :test do
-  gem 'actionpack'
+  gem 'actionpack', :require => false
 end

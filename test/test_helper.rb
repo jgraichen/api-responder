@@ -7,14 +7,12 @@ Bundler.setup
 ENV["RAILS_ENV"] = "test"
 
 require 'mocha/setup'
-require "minitest/reporters"
-MiniTest::Reporters.use! [MiniTest::Reporters::DefaultReporter.new, MiniTest::Reporters::RubyMineReporter.new]
-
 require 'minitest/ansi'
 MiniTest::ANSI.use!
 
 require 'active_support'
 require 'action_controller'
+require 'action_controller/test_case'
 require 'api-responder'
 
 Routes = ActionDispatch::Routing::RouteSet.new
@@ -26,7 +24,7 @@ Routes.draw do
 end
 
 class ActiveSupport::TestCase
-  setup do @routes = Responders::Routes end
+  setup do @routes = Routes end
 end
 
 class AppResponder < ActionController::Responder
