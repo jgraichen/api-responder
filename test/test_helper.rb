@@ -6,16 +6,19 @@ Bundler.setup
 # Configure Rails
 ENV["RAILS_ENV"] = "test"
 
-require 'mocha'
+require 'mocha/setup'
+require "minitest/reporters"
+MiniTest::Reporters.use! [MiniTest::Reporters::DefaultReporter.new, MiniTest::Reporters::RubyMineReporter.new]
+
 require 'minitest/ansi'
 MiniTest::ANSI.use!
 
 require 'active_support'
 require 'action_controller'
+require 'api-responder'
 
-
-Responders::Routes = ActionDispatch::Routing::RouteSet.new
-Responders::Routes.draw do
+Routes = ActionDispatch::Routing::RouteSet.new
+Routes.draw do
   match '/' => 'app#index'
   match '/api/v1/index' => 'app#v1'
   match '/api/v2/index' => 'app#v2'
@@ -31,7 +34,7 @@ class AppResponder < ActionController::Responder
 end
 
 class AppController < ActionController::Base
-  include Responders::Routes.url_helpers
+  include Routes.url_helpers
   self.responder = AppResponder
   respond_to :json
   rescue_from ApiResponder::Formattable::UnsupportedVersion do head :not_acceptable end
@@ -41,7 +44,7 @@ class AppController < ActionController::Base
 end
 
 class CustomController < ActionController::Base
-  include Responders::Routes.url_helpers
+  include Routes.url_helpers
   self.responder = AppResponder
   respond_to :json
   rescue_from ApiResponder::Formattable::UnsupportedVersion do head :not_acceptable end

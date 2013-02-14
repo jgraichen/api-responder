@@ -7,6 +7,7 @@ group :development, :test do
   gem 'rake'
   gem 'minitest'
   gem 'minitest-ansi'
+  gem 'minitest-reporters'
   gem 'mocha', '>= 0.13', :require => false
 end
 
