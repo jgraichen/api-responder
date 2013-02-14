@@ -1,4 +1,4 @@
-# Responders::ApiResponder
+# Responders::ApiResponder [![Build Status](https://travis-ci.org/jgraichen/api-responder.png?branch=master)](https://travis-ci.org/jgraichen/api-responder)
 
 `ApiResponder` simplifies version dependent rendering of API resources using a custom responder and a mixin for decorators or models (decorators are recommended).
 
