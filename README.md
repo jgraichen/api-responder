@@ -26,7 +26,7 @@ class AppResponder < Responder
 end
 
 class MyController < ApplicationController
-  self.responder = ApiResponder
+  self.responder = AppResponder
 end
 ```
 
