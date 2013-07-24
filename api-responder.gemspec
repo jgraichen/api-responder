@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{ApiResponder simplifies version dependent rendering of API resources.}
   gem.summary       = %q{ApiResponder simplifies version dependent rendering of API resources.}
   gem.homepage      = ""
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
